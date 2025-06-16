@@ -10,9 +10,9 @@ app.use(cors())
 
 const tripRoutes = require('./routes/trip.routes')
 
-app.use('/trip', tripRoutes) // http://localhost:3001/trip --> POST/GET/GET by ID
+app.use('api/trip', tripRoutes) // http://localhost:3001/trip --> POST/GET/GET by ID
 
-app.get('/hello', (req,res)=>{
+app.get('api/hello', (req,res)=>{
     res.send('Hello World!')
 })
 

@@ -21,7 +21,7 @@ export default function AddExperience() {
   const submitForm = async () => {
     setLoading(true);
     try {
-      await axios.post(`${baseUrl}/trip`, formdata);
+      await axios.post(`${baseUrl}/api/trip`, formdata);
       alert("Experience added successfully!");
     } catch (error) {
       console.error("Submission error:", error);

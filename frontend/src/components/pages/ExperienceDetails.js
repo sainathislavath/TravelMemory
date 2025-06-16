@@ -11,7 +11,7 @@ export default function ExperienceDetails() {
 
   useEffect(() => {
     axios
-      .get(`${baseUrl}/trip/${id}`)
+      .get(`${baseUrl}/api/trip/${id}`)
       .then((res) => setData(res.data))
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));
