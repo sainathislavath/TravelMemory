@@ -1,21 +1,22 @@
-const express = require('express')
-const cors = require('cors')
-require('dotenv').config()
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
 
-const app = express()
-PORT = process.env.PORT
-const conn = require('./conn')
-app.use(express.json())
-app.use(cors())
+const app = express();
+const PORT = process.env.PORT || 5000; // fallback for safety
+const conn = require("./conn");
 
-const tripRoutes = require('./routes/trip.routes')
+app.use(express.json());
+app.use(cors());
 
-app.use('api/trip', tripRoutes) // http://localhost:3001/trip --> POST/GET/GET by ID
+// ✅ Corrected Route Prefixes
+const tripRoutes = require("./routes/trip.routes");
+app.use("/api/trip", tripRoutes);
 
-app.get('api/hello', (req,res)=>{
-    res.send('Hello World!')
-})
+app.get("/api/hello", (req, res) => {
+  res.send("Hello World!");
+});
 
-app.listen(PORT, ()=>{
-    console.log(`Server started at http://localhost:${PORT}`)
-})
+app.listen(PORT, () => {
+  console.log(`Server started at http://localhost:${PORT}`);
+});
